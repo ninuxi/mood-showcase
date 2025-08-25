@@ -73,6 +73,7 @@ npm install
 # Avvia il server di sviluppo
 npm run dev
 
+
 Apri http://localhost:3000 per visualizzare la dashboard in locale.
 
 📞 Contatti e Informazioni
