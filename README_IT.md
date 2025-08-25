@@ -1,4 +1,3 @@
-```markdown
 [Read in English](README.md)
 
 # 🎨 MOOD - Adaptive Artistic Environment (Showcase)
