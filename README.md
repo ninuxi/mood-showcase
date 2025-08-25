@@ -16,6 +16,7 @@ Experience the full interactive dashboard with AI-driven mood analysis, real-tim
 ---
 
 ## 📋 **What is MOOD?**
+[![MOOD Showcase Demo](totale_mood_small.gif)](https://youtu.be/ueAoJZJqpBw)
 
 MOOD is a professional-grade system that bridges AI analysis with industry-standard creative software, creating responsive art installations that adapt to their audience in real-time.
 
