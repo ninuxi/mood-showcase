@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>MOOD Demo Reale — Simulazioni Audio + Luci + Video</title>
+  <style>
+    :root {
+      --bg: #07101c;
+      --line: rgba(148,163,184,0.22);
+      --ink: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #22d3ee;
+      --r: 18px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: "Sora","Segoe UI",sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 12% 10%, rgba(34,211,238,.2), transparent 45%),
+        radial-gradient(circle at 85% 15%, rgba(139,92,246,.2), transparent 42%),
+        linear-gradient(160deg,#060d18 0%,#0c1526 55%,#16213a 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 20px 60px;
+      gap: 36px;
+    }
+    header { text-align: center; max-width: 580px; }
+    .kicker {
+      display: inline-block;
+      font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(34,211,238,.1); border: 1px solid rgba(34,211,238,.3);
+      border-radius: 999px; padding: 4px 12px; margin-bottom: 14px;
+    }
+    h1 {
+      font-size: clamp(1.7rem,4vw,2.6rem);
+      letter-spacing: -.025em; line-height: 1.1; margin-bottom: 12px;
+    }
+    h1 em { font-style: italic; color: var(--accent); }
+    header p { color: var(--muted); line-height: 1.7; font-size: .97rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      width: min(1080px, 96vw);
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--r);
+      background: rgba(8,16,30,.82);
+      overflow: hidden;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.5);
+    }
+
+    .card-preview {
+      aspect-ratio: 16/9;
+      background: #050c17;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-preview .bg-glow {
+      position: absolute; inset: 0;
+      opacity: .55;
+    }
+
+    .card-preview span { position: relative; z-index: 2; }
+
+    .num {
+      position: absolute; top: 10px; left: 12px; z-index: 3;
+      font-size: .7rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase;
+      color: rgba(255,255,255,.45);
+    }
+
+    .card-body { padding: 16px 16px 18px; }
+    .card-body h2 { font-size: 1.05rem; letter-spacing: -.01em; margin-bottom: 7px; }
+    .card-body p { font-size: .84rem; color: var(--muted); line-height: 1.65; margin-bottom: 14px; }
+
+    .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .tag {
+      font-size: .7rem; font-weight: 700;
+      border: 1px solid var(--line); border-radius: 999px;
+      padding: 3px 9px; color: var(--muted);
+    }
+
+    .open-btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: rgba(34,211,238,.12); border: 1px solid rgba(34,211,238,.4);
+      color: var(--accent);
+      border-radius: 10px; padding: 9px 14px;
+      font-size: .82rem; font-weight: 700;
+      text-decoration: none;
+      transition: background .2s;
+    }
+    .open-btn:hover { background: rgba(34,211,238,.22); }
+
+    footer {
+      font-size: .76rem; color: var(--muted); text-align: center;
+      border-top: 1px solid var(--line); padding-top: 20px; width: min(700px,90vw);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="kicker">MOOD Demo Reale</div>
+    <h1>Simulazioni <em>Audio + Luci + Video</em></h1>
+    <p>
+      Tre demo interattive che mostrano come MOOD legge l'energia di uno spazio e orchestra automaticamente audio,
+      luci e visual. Clicca Attiva audio per sentire il sistema in azione.
+    </p>
+  </header>
+
+  <div class="grid">
+
+    <!-- Demo 01 -->
+    <div class="card">
+      <div class="card-preview">
+        <div class="bg-glow" style="background:radial-gradient(circle at 50% 50%,rgba(99,102,241,.55),transparent 65%);"></div>
+        <span class="num">01</span>
+        <span>📡</span>
+      </div>
+      <div class="card-body">
+        <h2>Radar 2D + Audio</h2>
+        <p>
+          Canvas 2D con radar rotante, persone come particelle, penombre dinamiche e
+          lavaggi di luce colorata. Audio generativo che segue il mood in tempo reale.
+        </p>
+        <div class="tags">
+          <span class="tag">Canvas 2D</span>
+          <span class="tag">Web Audio</span>
+          <span class="tag">Penombre</span>
+        </div>
+        <a class="open-btn" href="moodtestclaudecode_01_radar_audio.html">
+          Apri demo 01 →
+        </a>
+      </div>
+    </div>
+
+    <!-- Demo 02 -->
+    <div class="card">
+      <div class="card-preview">
+        <div class="bg-glow" style="background:radial-gradient(circle at 50% 50%,rgba(14,165,233,.55),transparent 65%);"></div>
+        <span class="num">02</span>
+        <span>🏛️</span>
+      </div>
+      <div class="card-body">
+        <h2>Room 3D + Audio</h2>
+        <p>
+          Scena Three.js con stanza, agenti 3D, spotlight mobili con shadow map reali.
+          Colore e intensità delle luci cambiano ad ogni cambio di mood. Audio sincrono.
+        </p>
+        <div class="tags">
+          <span class="tag">Three.js</span>
+          <span class="tag">Shadow Map</span>
+          <span class="tag">Spot Lights</span>
+        </div>
+        <a class="open-btn" href="moodtestclaudecode_02_room3d_audio.html">
+          Apri demo 02 →
+        </a>
+      </div>
+    </div>
+
+    <!-- Demo 03 -->
+    <div class="card">
+      <div class="card-preview">
+        <div class="bg-glow" style="background:radial-gradient(circle at 50% 50%,rgba(245,158,11,.45),transparent 65%);"></div>
+        <span class="num">03</span>
+        <span>🎭</span>
+      </div>
+      <div class="card-body">
+        <h2>Hybrid 2D + 3D + Audio</h2>
+        <p>
+          Demo completa: radar 2D e scena 3D fianco a fianco, entrambi governati dallo
+          stesso stato mood. Audio reattivo, ombre reali, cambio scenario manuale.
+        </p>
+        <div class="tags">
+          <span class="tag">2D + 3D</span>
+          <span class="tag">Web Audio</span>
+          <span class="tag">Scenari</span>
+        </div>
+        <a class="open-btn" href="moodtestclaudecode_03_hybrid_audio.html">
+          Apri demo 03 →
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    MOOD — Adaptive Art System · Antonio Mainenti · aiforlive.com
+  </footer>
+</body>
+</html>
